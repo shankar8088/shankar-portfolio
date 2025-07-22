@@ -1,5 +1,5 @@
 // src/App.js
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
