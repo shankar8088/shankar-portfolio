@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: white;
+  transition: backdrop-filter 0.3s ease;
+}
+
+/* Blur effect for non-Home pages */
+body.page-blur::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(8px);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Blue gradient glow effect for cards */
+.hover-glow {
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  transform: translateY(-5px);
+}
+
+.hover-glow::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hover-glow:hover::before {
+  opacity: 0.5;
+}
+
+/* Skills section specific overrides */
+#skills {
+  --text-color: #000;
+  color: var(--text-color);
+}
+
+#skills * {
+  color: inherit !important;
+}
+
+#skills .text-gray-700,
+#skills .text-gray-600,
+#skills .text-gray-800,
+#skills .text-gray-900,
+#skills .text-gray-500 {
+  color: #000 !important;
+}
+
+/* Ensure text is white in all other sections */
+:not(#skills) .text-gray-700,
+:not(#skills) .text-gray-600,
+:not(#skills) .text-gray-800,
+:not(#skills) .text-gray-900,
+:not(#skills) .text-gray-500 {
+  color: white !important;
+}
+
+/* Fix for text color in buttons and other elements outside skills */
+:not(#skills) button,
+:not(#skills) a,
+:not(#skills) input,
+:not(#skills) textarea,
+:not(#skills) select {
+  color: white !important;
+}
