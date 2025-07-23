@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Particle Background - Clear on Home page */}
+      {/* Particle Background - Now fully visible */}
       <div className="absolute inset-0 z-0">
         <Particles
           id="tsparticles"
@@ -30,7 +30,7 @@ export default function Home() {
           options={{
             background: {
               color: {
-                value: "transparent",
+                value: "",
               },
             },
             fpsLimit: 120,
@@ -48,11 +48,11 @@ export default function Home() {
               },
               modes: {
                 push: {
-                  quantity: 4,
+                  quantity: 1,
                 },
                 repulse: {
                   distance: 100,
-                  duration: 0.4,
+                  duration: 0-1,
                 },
               },
             },
@@ -100,10 +100,10 @@ export default function Home() {
       </div>
 
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="relative z-30 flex flex-col items-center justify-center h-full text-center text-white px-4"
+        className="relative z-30 flex flex-col items-center justify-center h-full text-center px-4"
       >
         <motion.h1 
           initial={{ scale: 0.9 }}
@@ -114,7 +114,7 @@ export default function Home() {
           <TypeAnimation
             sequence={[
               'Hi, I\'m Shankar',
-              5000,
+              10000,
             ]}
             wrapper="span"
             speed={50}
@@ -122,7 +122,7 @@ export default function Home() {
             className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-400"
           />
         </motion.h1>
-        <p className="text-xl md:text-2xl font-medium mb-8">
+        <p className="text-xl md:text-2xl font-medium mb-8 text-gray-900">
           Frontend Developer | React | Tailwind CSS Enthusiast
         </p>
         <motion.a
@@ -130,7 +130,7 @@ export default function Home() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 
-                     px-8 py-3 rounded-full text-lg font-semibold transition shadow-lg"
+                     px-8 py-3 rounded-full text-lg font-semibold text-white transition shadow-lg"
         >
           Get In Touch
         </motion.a>
@@ -140,7 +140,7 @@ export default function Home() {
           transition={{ repeat: Infinity, duration: 2 }}
           className="absolute bottom-8"
         >
-          <a href="#about" className="text-white/80 hover:text-white">
+          <a href="#about" className="text-gray-800 hover:text-gray-900">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>

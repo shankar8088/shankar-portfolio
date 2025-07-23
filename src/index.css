@@ -10,7 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
-  transition: backdrop-filter 0.3s ease;
+  transition: backdrop-filter 0.8s ease;
 }
 
 /* Blur effect for non-Home pages */
@@ -21,7 +21,7 @@ body.page-blur::before {
   left: 0;
   right: 0;
   bottom: 0;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(3px);
   z-index: 5;
   pointer-events: none;
 }

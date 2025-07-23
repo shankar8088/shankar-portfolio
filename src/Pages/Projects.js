@@ -13,7 +13,7 @@ export default function Projects() {
       category: "web",
       tech: ["React", "Tailwind CSS", "Firebase"],
       github: "https://github.com/shankar/indian-oil",
-      live: "https://indian-oil-clone.vercel.app"
+      live: "https://sapthagiri-enterprises.netlify.app/"
     },
     {
       title: "Yoga Website",
@@ -33,18 +33,9 @@ export default function Projects() {
       category: "design",
       tech: ["React", "Tailwind CSS"],
       github: "https://github.com/shankar/portfolio-website",
-      live: "https://portfolio-website.vercel.app"
+      live: "https://shankar01-portfolio.netlify.app/"
     },
-    {
-      title: "Weather App",
-      desc: "A simple weather app using OpenWeatherMap API, React, and Tailwind CSS.",
-      link: "#",
-      image: "/images/projects/weather-app.jpg",
-      category: "web",
-      tech: ["React", "Tailwind CSS", "OpenWeatherMap API"],
-      github: "https://github.com/shankar/weather-app",
-      live: "https://weather-app.vercel.app"
-    },
+   
   ];
 
   const categories = ['all', 'web', 'mobile', 'design'];
@@ -77,7 +68,7 @@ export default function Projects() {
               className={`px-4 py-2 rounded-full capitalize transition-all ${
                 filter === cat
                   ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  : 'bg-black-100 text-gray-600 hover:bg-gray-200'
               }`}
             >
               {cat}

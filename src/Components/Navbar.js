@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 export default function Navbar({ activeSection, scrollToSection }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(false);
 
   // Handle scroll effect
   useEffect(() => {
@@ -32,7 +31,7 @@ export default function Navbar({ activeSection, scrollToSection }) {
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/90 dark:bg-gray-900/90 shadow-lg backdrop-blur-sm' : 'bg-transparent'
+      isScrolled ? 'shadow-lg backdrop-blur-sm' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -52,8 +51,8 @@ export default function Navbar({ activeSection, scrollToSection }) {
                 key={link.id}
                 onClick={(e) => handleNavClick(e, link.id)}
                 className={`${activeSection === link.id 
-                  ? 'text-blue-500 dark:text-blue-400' 
-                  : 'text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400'
+                  ? 'text-blue-500' 
+                  : 'text-gray-700 hover:text-blue-500'
                 } transition-colors relative py-2`}
                 whileHover={{ y: -2 }}
               >
@@ -66,16 +65,6 @@ export default function Navbar({ activeSection, scrollToSection }) {
                 )}
               </motion.button>
             ))}
-
-            {/* Theme Toggle */}
-            <motion.button
-              whileHover={{ rotate: 180 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setIsDark(!isDark)}
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
-            >
-              {isDark ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
-            </motion.button>
 
             {/* Resume Button */}
             <motion.a
@@ -95,7 +84,7 @@ export default function Navbar({ activeSection, scrollToSection }) {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100"
           >
             {isOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
           </motion.button>
@@ -109,7 +98,7 @@ export default function Navbar({ activeSection, scrollToSection }) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-gray-900 border-t dark:border-gray-800"
+            className="md:hidden bg-white/95 backdrop-blur-sm border-t"
           >
             <div className="px-4 py-4 space-y-3">
               {links.map(link => (
@@ -118,8 +107,8 @@ export default function Navbar({ activeSection, scrollToSection }) {
                   onClick={(e) => handleNavClick(e, link.id)}
                   className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium ${
                     activeSection === link.id 
-                      ? 'text-blue-500 dark:text-blue-400' 
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                      ? 'text-blue-500' 
+                      : 'text-gray-700 hover:bg-gray-100'
                   }`}
                   whileHover={{ x: 5 }}
                 >
